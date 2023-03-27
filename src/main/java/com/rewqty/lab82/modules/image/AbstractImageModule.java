@@ -1,0 +1,20 @@
+package com.rewqty.lab82.modules.image;
+
+import com.rewqty.lab82.modules.FileUtils;
+import com.rewqty.lab82.modules.Module;
+
+import java.io.File;
+import java.util.Arrays;
+import java.util.List;
+
+public abstract class AbstractImageModule implements Module {
+    private static final List<String> _supportedFormat = Arrays.asList(
+            "png", "jpg", "jpeg", "bmp", "gif", "tif", "tiff", "ico"
+    );
+
+    @Override
+    public boolean isSupportedFormat(File file) {
+        return _supportedFormat.contains(FileUtils.getExtension(file));
+
+    }
+}
